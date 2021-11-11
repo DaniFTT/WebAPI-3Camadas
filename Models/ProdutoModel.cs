@@ -23,5 +23,22 @@ namespace Models
         [Column("PRD_Valor")]
         [Display(Name = "Valor")]
         public double Valor { get; set; }
+
+        [Column("PRD_QuantidadeVendida")]
+        [Display(Name = "Quantidade Vendida")]
+        public int QuantidadeVendida { get; set; }
+
+        [Column("PRD_Ativo")]
+        [Display(Name = "Ativo")]
+        public bool Ativo { get; set; }
+
+        [Column("PRD_DataDeCriacao")]
+        [Display(Name = "Data de Criação")]
+        public DateTime DataDeCriacao { get; set; }
+
+        [Column("PRD_DataDeAlteracao")]
+        [Display(Name = "Data de Alteração")]
+        public DateTime DataDeAlteracao { get; set; }
+
     }
 }
