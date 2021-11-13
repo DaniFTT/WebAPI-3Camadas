@@ -20,18 +20,14 @@ namespace Business
 
         public async Task<List<ProdutoModel>> ListarProdutosMaisComprados()
         {
-            //var list = await ListarProdutos(p => p.Ativo);
-            //return list.OrderBy(p => p.DataDeCriacao).Take(5).ToList();
             var list = await _produto.ListarProdutos(whereExpProd: prod => prod.Ativo, orderByDescendingExpProd: prod => prod.QuantidadeVendida);
-            return list;
+            return list.Take(5).ToList();
         }
 
         public async Task<List<ProdutoModel>> ListarProdutosMaisRecentes()
         {
-            //var list = await ListarProdutos(whereExpProd: w => w.Ativo);
-            //return list.OrderBy(p => p.DataDeCriacao).Take(5).ToList();
-            var list = await _produto.ListarProdutos(whereExpProd: prod => prod.Ativo, orderByExpProd: prod => prod.DataDeCriacao);
-            return list;
+            var list = await _produto.ListarProdutos(whereExpProd: prod => prod.Ativo, orderByDescendingExpProd: prod => prod.DataDeCriacao);
+            return list.Take(5).ToList();
         }
 
         public async Task<List<ProdutoModel>> ListarProdutosInativos()
