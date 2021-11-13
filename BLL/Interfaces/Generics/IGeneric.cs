@@ -9,7 +9,7 @@ namespace Business.Interfaces.Generics
     public interface IGeneric<T> where T : class
     {
         Task Add(T Object);
-        Task Updade(T Object);
+        Task Update(T Object);
         Task Delete(T Object);
         Task<T> GetById(int Id);
         Task<List<T>> List();
