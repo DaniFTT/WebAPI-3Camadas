@@ -52,7 +52,7 @@ namespace Data.Repository.Generics
             }
         }
 
-        public async Task Updade(T Object)
+        public async Task Update(T Object)
         {
             using (var data = new ContextBase(_optionsBuilder))
             {
