@@ -26,10 +26,22 @@ namespace Data.Repository
         {
             using (var data = new ContextBase(_optionsBuilder))
             {
-                return await data.ProdutoModel
-                    .Where(whereExpProd)
-                    .OrderBy(orderByExpProd)
-                    .ThenByDescending(orderByDescendingExpProd).AsNoTracking().ToListAsync();
+
+                var query = data.ProdutoModel.AsQueryable();
+                if (whereExpProd != null)
+                {
+                    query = query.Where(whereExpProd);
+                }
+                if(orderByExpProd != null)
+                {
+                    query = query.OrderBy(orderByExpProd);
+                }
+                if(orderByDescendingExpProd != null)
+                {
+                    query = query.OrderByDescending(orderByDescendingExpProd);
+                }
+
+                return await query.AsNoTracking().ToListAsync();
             }
         }
     }
